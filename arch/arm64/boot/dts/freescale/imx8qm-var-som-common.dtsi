@@ -358,22 +358,22 @@
 
 		pinctrl_i2c0: i2c0grp {
 			fsl,pins = <
-				IMX8QM_HDMI_TX0_TS_SCL_DMA_I2C0_SCL			0xc600004c
-				IMX8QM_HDMI_TX0_TS_SDA_DMA_I2C0_SDA			0xc600004c
+				IMX8QM_HDMI_TX0_TS_SCL_DMA_I2C0_SCL			0xc6000020
+				IMX8QM_HDMI_TX0_TS_SDA_DMA_I2C0_SDA			0xc6000020
 			>;
 		};
 
 		pinctrl_i2c1: i2c1grp {
 			fsl,pins = <
-				IMX8QM_USB_SS3_TC3_DMA_I2C1_SDA				0xc600004c
-				IMX8QM_USB_SS3_TC1_DMA_I2C1_SCL				0xc600004c
+				IMX8QM_USB_SS3_TC3_DMA_I2C1_SDA				0xc6000020
+				IMX8QM_USB_SS3_TC1_DMA_I2C1_SCL				0xc6000020
 			>;
 		};
 
 		pinctrl_i2c4: i2c4grp {
 			fsl,pins = <
-				IMX8QM_ENET1_MDC_DMA_I2C4_SCL				0xc600004c
-				IMX8QM_ENET1_MDIO_DMA_I2C4_SDA				0xc600004c
+				IMX8QM_ENET1_MDC_DMA_I2C4_SCL				0xc6000020
+				IMX8QM_ENET1_MDIO_DMA_I2C4_SDA				0xc6000020
 			>;
 		};
 
@@ -792,6 +792,7 @@
 	fsl,magic-packet;
 	phy-reset-gpios = <&lsio_gpio2 28 GPIO_ACTIVE_LOW>;
 	phy-reset-duration = <10>;
+	phy-reset-post-delay = <20>;
 	phy-mode = "rgmii";
 	phy-handle = <&ethphy0>;
 	status = "okay";
@@ -812,6 +813,7 @@
 			reg = <5>;
 			at803x,eee-disabled;
 			at803x,vddio-1p8v;
+			adi,phy-mode-override = "rgmii";
 		};
 	};
 };
@@ -825,6 +827,7 @@
 	phy-supply = <&reg_ethphy1>;
 	phy-reset-gpios = <&pca9534 5 GPIO_ACTIVE_LOW>;
 	phy-reset-duration = <10>;
+	phy-reset-post-delay = <20>;
 	status = "okay";
 };
 
