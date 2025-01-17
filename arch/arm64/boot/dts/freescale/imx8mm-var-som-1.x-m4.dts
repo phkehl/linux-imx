@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 /*
- * Copyright 2018 NXP
- * Copyright 2019-2025 Variscite Ltd.
+ * Copyright 2024 Variscite Ltd.
  */
 
 #include "imx8mm-var-som-m4.dtsi"
+#include "imx8mm-var-som-1.x.dtsi"
 
 / {
 	model = "Variscite VAR-SOM-MX8MM V2 Cortex-M4 on Symphony Board";

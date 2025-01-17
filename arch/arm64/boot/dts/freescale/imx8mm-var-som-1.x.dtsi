@@ -1,0 +1,30 @@
+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+/*
+ * Copyright 2025 Variscite Ltd.
+ */
+
+&iw612_pwrseq {
+	status = "disabled";
+};
+
+/* WIFI */
+&usdhc1 {
+	/delete-property/ mmc-pwrseq;
+
+	pinctrl-0 = <&pinctrl_usdhc1>, <&pinctrl_wifi>, <&pinctrl_wifi_v1>;
+	pinctrl-1 = <&pinctrl_usdhc1_100mhz>, <&pinctrl_wifi>, <&pinctrl_wifi_v1>;
+	pinctrl-2 = <&pinctrl_usdhc1_200mhz>, <&pinctrl_wifi>, <&pinctrl_wifi_v1>;
+
+	brcmf: wifi@1 {
+		reg = <1>;
+		compatible = "brcm,bcm4329-fmac";
+	};
+};
+
+&iomuxc {
+	pinctrl_wifi_v1: wifigrp_v1 {
+		fsl,pins = <
+			MX8MM_IOMUXC_SD1_DATA5_GPIO2_IO7		0xc1	/* WIFI_3V3_PWR_EN */
+		>;
+	};
+};
